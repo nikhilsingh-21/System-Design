@@ -1,0 +1,88 @@
+ **** UML DIAGRAM :     
+   FOR STrategy Design Pattern 
+
+Context
+  - strategy: Strategy
+  + setStrategy(s: Strategy)
+  + executeStrategy()
+
+Strategy (interface)
+  + execute()
+
+ConcreteStrategyA
+  + execute()
+
+ConcreteStrategyB
+  + execute()
+
+
+
+ *** Definition : 
+    The Strategy Design Pattern is a behavioral design pattern that enables you to define a family of algorithms, encapsulate each one into a separate class, and make them interchangeable at runtime.
+             or
+   In Simple Terms:
+      It allows you to select an algorithm’s behavior at runtime by encapsulating different behaviors (strategies) in separate classes and letting a context class use them interchangeably.
+
+*** 📦 Example Context:
+    ->  You have different payment methods (CreditCard, PayPal, UPI).
+    -> Instead of hardcoding if-else blocks, we define each payment method as a strategy.
+    -> The ShoppingCart class (context) delegates the pay() action to whatever strategy is set.
+
+*** UML Diagram for shoppingCart example:
+  
+          +------------------------+
+          |    <<interface>>       |
+          |     PaymentStrategy    |
+          +------------------------+
+          |+ pay(amount: int): void|
+          +------------------------+
+                   ▲
+                   |
+   +-----------------------------+   +-----------------------------+
+   |     CreditCardPayment       |   |       PayPalPayment         |
+   +-----------------------------+   +-----------------------------+
+   | + pay(amount: int): void    |   | + pay(amount: int): void    |
+   +-----------------------------+   +-----------------------------+
+
+                 ▲
+                 |
+          +------------------------------------------------+
+          |          ShoppingCart                          |
+          +------------------------------------------------+
+          | - paymentStrategy: PaymentStrategy             |
+          +------------------------------------------------+
+          | + setPaymentStrategy(s: PaymentStrategy): void |
+          | + checkout(amount: int): void                  |
+          +------------------------------------------------+
+
+
+*** CODE CONTROL FLOW :
+
+ Main.main() 
+│
+├──> new ShoppingCart()
+│
+├──> cart.setPaymentStrategy(new CreditCardPayment())
+│       └── ShoppingCart.paymentStrategy = CreditCardPayment
+│
+├──> cart.checkout(100)
+│       └── CreditCardPayment.pay(100)
+│
+├──> cart.setPaymentStrategy(new PayPalPayment())
+│       └── ShoppingCart.paymentStrategy = PayPalPayment
+│
+└──> cart.checkout(200)
+        └── PayPalPayment.pay(200)
+
+*** ✅ How It Works:
+
+ -> ShoppingCart is the context class that uses a PaymentStrategy.
+
+ -> PaymentStrategy is an interface with a pay() method.
+
+ -> CreditCardPayment and PayPalPayment are two interchangeable strategies.
+
+ -> The strategy can be set dynamically at runtime using setPaymentStrategy().
+
+ -> checkout() delegates the payment logic to the current strategy.
+

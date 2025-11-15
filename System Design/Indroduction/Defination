@@ -1,0 +1,49 @@
+#  🚀 What is System Design?   
+
+    " Designing how a big software system works internally so it can handle millions of users smoothly."
+  
+            It means deciding:
+
+              -> How data flows
+              -> How fast the system should be
+              -> How to handle more users
+              -> How to store, fetch, and secure data
+              -> How different parts talk to each other
+
+  #   📌 So System Design = these things:  
+
+  ###  1️⃣ Architecture
+         Monolith? Microservices? N-tier? Event-driven?
+
+  ### 2️⃣ Components
+        Load balancer
+        Database
+        Cache
+        Server
+        Queue
+        CDN
+        API Gateway
+
+  ### 3️⃣ Database Design
+       SQL or NoSQL?
+       Sharding?
+       Replication?
+
+  ### 4️⃣ Performance
+       Caching
+       Indexing
+       Compression
+       CDN
+
+  ### 5️⃣ Scalability
+       Vertical scaling (bigger server)
+       Horizontal scaling (more servers)
+
+  ### 6️⃣ Reliability
+       Backups
+       Failover
+       Redundancy
+
+  #  💡 Easiest Definition for Interviews 
+   
+  #### 👉 “System Design is the process of planning the architecture and  components of a software system so it is scalable, reliable, and can handle large traffic efficiently.”
